@@ -15,7 +15,12 @@ spec:
         app: php-app
     spec:
       containers:
+<<<<<<< HEAD
       - name: php-app
         image: abhishekf5/ultimate-cicd:replaceImageTag
+=======
+      - name: spring-boot-app
+        image: abhishekf5/ultimate-cicd:7
+>>>>>>> 664fff9ca374b9b53cf78713b3395ed6ecbca62d
         ports:
         - containerPort: 8080
