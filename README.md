@@ -1,1 +1,1 @@
-# nginx-php-docker-kubernetes
+# php-docker-kubernetes
