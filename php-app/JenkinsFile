@@ -9,7 +9,7 @@ pipeline {
     stage('Checkout') {
       steps {
         sh 'echo passed'
-        git branch: 'main', url: 'https://github.com/tobing/nginx-php-docker-kubernetes/php-app.git'
+        git branch: 'main', url: 'https://github.com/tobing/php-docker-kubernetes.git'
       }
     }    
     stage('Build and Push Docker Image') {
@@ -30,7 +30,7 @@ pipeline {
     }
     stage('Update Deployment File') {
         environment {
-            GIT_REPO_NAME = "nginx-php-docker-kubernetes/php-app"
+            GIT_REPO_NAME = "php-docker-kubernetes/php-app"
             GIT_USER_NAME = "tobing"
         }
         steps {
