@@ -1,3 +1,4 @@
+def BUILD_NUMBER
 pipeline {
   agent {
     docker {
@@ -6,6 +7,14 @@ pipeline {
     }
   }
   stages {
+    stage('Initialize the variables') {
+      steps{
+        script{
+          BUILD_NUMBER="$(date +%Y%m%d%H%M%S%3N)"
+          ZIP_NODE="abcdefgh-0.0.${CODE_VERSION}.zip"
+        }
+      }                
+    }
     stage('Checkout') {
       steps {
         sh 'echo passed'
@@ -38,7 +47,6 @@ pipeline {
                 sh '''
                     git config user.email "lumban.tobing.m@gmail.com"
                     git config user.name "tobing"
-                    BUILD_NUMBER=$(date +%Y%m%d%H%M%S%3N)
                     sed -i.back "/image:/s/:[0-9].*/:${BUILD_NUMBER}/g" php-app-manifests/deployment.yml
                     git add php-app-manifests/deployment.yml
                     git commit -m "Update deployment image to version ${BUILD_NUMBER}"
