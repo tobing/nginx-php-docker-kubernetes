@@ -9,7 +9,7 @@ pipeline {
     stage('Checkout') {
       steps {
         sh 'echo passed'
-        git branch: 'main', url: 'https://github.com/tobing/php-docker-kubernetes/php-app.git'
+        git branch: 'main', url: 'https://github.com/tobing/php-docker-kubernetes.git'
       }
     }    
     stage('Build and Push Docker Image') {
