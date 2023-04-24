@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: php-app
-        image: mltobing/php-cicd:23
+        image: mltobing/php-cicd:20230424140452893
         ports:
         - containerPort: 8080
