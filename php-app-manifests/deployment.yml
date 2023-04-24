@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: php-app
-        image: mltobing/php-cicd:7
+        image: mltobing/php-cicd:replaceImageTag
         ports:
         - containerPort: 8888
