@@ -30,7 +30,7 @@ pipeline {
     }
     stage('Update Deployment File') {
         environment {
-            GIT_REPO_NAME = "php-docker-kubernetes/php-app"
+            GIT_REPO_NAME = "php-docker-kubernetes"
             GIT_USER_NAME = "tobing"
         }
         steps {
