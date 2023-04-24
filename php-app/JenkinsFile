@@ -17,7 +17,7 @@ pipeline {
     }    
     stage('Build and Push Docker Image') {
       environment {
-        DOCKER_IMAGE = "mltobing/php-cicd:${BUILD_NUMBER}"
+        DOCKER_IMAGE = "mltobing/php-cicd:${BUILDVERSION}"
         // DOCKERFILE_LOCATION = "php-app/Dockerfile"
         REGISTRY_CREDENTIALS = credentials('dockerhublogin')
       }
@@ -43,7 +43,7 @@ pipeline {
                     git config user.name "tobing"
                     sed -i.back "/image:/s/:[0-9].*/:${BUILDVERSION}/g" php-app-manifests/deployment.yml
                     git add php-app-manifests/deployment.yml
-                    git commit -m "Update deployment image to version ${BUILD_NUMBER}"
+                    git commit -m "Update deployment image to version ${BUILDVERSION}"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
                 '''
             }
