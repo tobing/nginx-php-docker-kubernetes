@@ -1,8 +1,10 @@
 <?php
 
-	date_default_timezone_set('Asia/Jakarta');
-	echo date('Y/m/d H:i:s');
+	//date_default_timezone_set('Asia/Jakarta');
+	//echo date('Y/m/d H:i:s');
 	print "\n";
-	phpinfo();
+	echo gethostname();
+	print "\n";
+	//phpinfo();
 
 ?>
